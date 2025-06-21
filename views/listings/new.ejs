@@ -1,0 +1,77 @@
+<% layout('/layouts/boilerplate')%>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+
+                <h3>Create a new Listing</h3>
+                <br><br>
+                <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                    <div class="mb-3 ">
+                        <label for="title" class="form-label">Title</label>
+                        <input name="listing[title]" placeholder="Give a catchy title" type="text" class="form-control"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="listing[description]" placeholder="enter Description" class="form-control" required></textarea>
+                        <div class="invalid-feedback">
+                            Please Enter short description.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- <div class="mb-3">
+                        <label for="image" class="form-label">Image Link</label>
+                        <input name="listing[image][url]" placeholder="enter image URL/Link" type="text"
+                            class="form-control">
+                        <div class="invalid-feedback">
+                            Please give valid URL.
+                        </div>
+                    </div> -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload Image</label>
+                        <input name="listing[image]" type="file"
+                            class="form-control" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="price" class="form-label">Price</label>
+                            <input name="listing[price]" placeholder="1200" class="form-control" required> <!--type="number" -->
+                            <div class="invalid-feedback">
+                                Please give valid Price.
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="mb-3 col-md-8">
+                            <label for="country" class="form-label">country</label>
+                            <input name="listing[country]" placeholder="India" type="text" class="form-control"
+                                required>
+                            <div class="invalid-feedback">
+                                Please give valid country.
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input name="listing[location]" placeholder="jaipur, Rajasthan" type="text" class="form-control"
+                            required>
+                        <div class="invalid-feedback">
+                            Please give valid Location.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <button class="btn btn-dark  add-btn  mt-3">add</button>
+                </form>
+        </div>
+    </div>
+    <!--Name ko key value pair me store krwa rhe taki hme app.js me object bna kr store krwana na pde
+avi hi object bna kr key val pair me store krwa de rhe hai-->
