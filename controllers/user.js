@@ -18,6 +18,10 @@ module.exports.signup = async (req, res) => {
         })
 
     } catch (e) {
+        if (e.code === 11000) {
+            req.flash("error", "Username or Email already exists!");
+            return res.redirect("/signup");
+        }
         req.flash("error", e.message);
         res.redirect('/signup');
     }
@@ -37,7 +41,7 @@ module.exports.login = async (req, res) => {
     }
 };
 
-module.exports.logout =  (req, res, next) => {
+module.exports.logout = (req, res, next) => {
     req.logout((err) => {  //req.logout() is passport method which logout user i.e deserialized user
         if (err) {    //error aya toh ye chalega but logout me error nhi ata agar middleware fail ho gya tb  hi error ayega
             return next(err);
