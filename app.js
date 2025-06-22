@@ -21,6 +21,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require('./models/user.js');
 const userRouter = require('./routes/user.js');
+const Listing = require('./models/listing');
 
 
 app.set("view engine", "ejs");
@@ -113,9 +114,10 @@ app.use((req, res, next) => {
 
 
 
-// app.get("/", (req, res) => {
-//     res.send("Hi , I am root");
-// });
+app.get("/", async(req, res) => {
+     const allListings = await Listing.find({});
+    res.render("listings/index", { allListings });
+});
 
 //to use listings
 app.use('/listings', listingRouter);
