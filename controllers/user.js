@@ -13,7 +13,7 @@ module.exports.signup = async (req, res) => {
             if (err) {
                 return next(err);
             }
-            req.flash("success", "Welcome to wanderlust!");
+            req.flash("success", "Welcome to GlobeTrek!");
             res.redirect("/listings");
         })
 
@@ -32,7 +32,7 @@ module.exports.renderLoginForm = (req, res) => {
 }
 
 module.exports.login = async (req, res) => {
-    req.flash("success", "Welcome back to wanderlust...You are logged in!");
+    req.flash("success", "Welcome back to GlobeTrek...You are logged in!");
     if (res.locals.redirectUrl) {
         res.redirect(res.locals.redirectUrl);  //agar iske under kuch exist krta tb hi wo page pe jyenge
     }
